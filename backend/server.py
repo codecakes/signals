@@ -97,7 +97,7 @@ class PolymarketClient:
             async with httpx.AsyncClient(timeout=30.0) as client:
                 response = await client.get(
                     f"{self.gamma_api}/markets",
-                    params={"limit": limit, "offset": offset, "active": True}
+                    params={"limit": limit, "offset": offset, "closed": False}
                 )
                 response.raise_for_status()
                 return response.json()
@@ -138,7 +138,7 @@ async def discover_and_ingest_markets():
     """Discover markets and store with signals"""
     logger.info("Starting market discovery...")
     
-    markets_data = await polymarket_client.get_markets(limit=50)
+    markets_data = await polymarket_client.get_markets(limit=100)
     
     for market_data in markets_data:
         try:
