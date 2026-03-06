@@ -1,50 +1,41 @@
-import { useEffect } from "react";
-import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import { useEffect, useState } from 'react';
+import '@/App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+import MarketExplorer from './pages/MarketExplorer';
+import SignalDetail from './pages/SignalDetail';
+import axios from 'axios';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
-  return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
+export const API = `${BACKEND_URL}/api`;
 
 function App() {
+  const [isDiscovering, setIsDiscovering] = useState(false);
+
+  useEffect(() => {
+    // Trigger initial market discovery
+    const triggerDiscovery = async () => {
+      try {
+        setIsDiscovering(true);
+        await axios.post(`${API}/markets/discover`);
+        // Wait a bit for data to populate
+        setTimeout(() => setIsDiscovering(false), 5000);
+      } catch (e) {
+        console.error('Error triggering discovery:', e);
+        setIsDiscovering(false);
+      }
+    };
+
+    triggerDiscovery();
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
+          <Route path="/" element={<Dashboard isDiscovering={isDiscovering} />} />
+          <Route path="/markets" element={<MarketExplorer />} />
+          <Route path="/signal/:signalId" element={<SignalDetail />} />
         </Routes>
       </BrowserRouter>
     </div>
