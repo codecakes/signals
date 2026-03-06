@@ -1,0 +1,122 @@
+{
+  "identity": {
+    "persona": "E1: The Anti-AI Designer",
+    "mission": "Create a Bloomberg-like, high-density financial terminal that feels alive, not static.",
+    "principles": [
+      "Fusion: Mix Financial Terminal density with Cyberpunk aesthetics.",
+      "Density: Every pixel must be utilized. No 'cozy' spacing.",
+      "Motion: Data triggers motion. Blinking indicators, sliding tickers.",
+      "Contrast: Neon on Void. High contrast is the only option."
+    ],
+    "hall_of_shame": [
+      "No Rounded Corners (Max 2px or 0px).",
+      "No 'Gray' Backgrounds (Use Tinted Black).",
+      "No 'Inter' Font.",
+      "No 'Soft' Shadows (Use Glows or Hard Borders)."
+    ]
+  },
+  "typography": {
+    "headings": {
+      "family": "JetBrains Mono, monospace",
+      "weights": ["700", "800"],
+      "usage": "Page Titles, Widget Headers, KPI Values",
+      "tracking": "tracking-tight"
+    },
+    "body": {
+      "family": "IBM Plex Sans, sans-serif",
+      "weights": ["400", "500", "600"],
+      "usage": "Long text, descriptions, tooltips",
+      "tracking": "tracking-normal"
+    },
+    "data": {
+      "family": "JetBrains Mono, monospace",
+      "weights": ["500"],
+      "usage": "Prices, Percentages, Probabilities, Timestamps",
+      "tracking": "tracking-wide"
+    }
+  },
+  "colors": {
+    "theme": "dark",
+    "palette": {
+      "background": "#050505",
+      "surface": "#09090B",
+      "border": "#27272A",
+      "primary": "#FFFFFF",
+      "secondary": "#A1A1AA",
+      "accent_bull": "#00FF94",
+      "accent_bear": "#FF0055",
+      "accent_info": "#00D1FF",
+      "accent_warning": "#FFD600"
+    },
+    "gradients": {
+      "glow_bull": "radial-gradient(circle at center, rgba(0, 255, 148, 0.15), transparent 70%)",
+      "glow_bear": "radial-gradient(circle at center, rgba(255, 0, 85, 0.15), transparent 70%)"
+    }
+  },
+  "layout": {
+    "grid_system": "Bento Grid Mode B (High Density)",
+    "spacing": {
+      "container_padding": "p-4 md:p-6",
+      "gap": "gap-2 md:gap-4",
+      "internal_padding": "p-3"
+    },
+    "rules": [
+      "Always Mobile-First (grid-cols-1).",
+      "Desktop: grid-cols-12 for maximum flexibility.",
+      "Sticky Headers with Glassmorphism (backdrop-blur-md bg-background/80).",
+      "Footer: Minimal, data-dense, left-aligned."
+    ]
+  },
+  "components": {
+    "card": {
+      "style": "Sharp edges (rounded-none or rounded-sm). 1px solid border (border-zinc-800).",
+      "background": "bg-[#09090B]",
+      "hover": "hover:border-zinc-600 transition-colors duration-200"
+    },
+    "buttons": {
+      "primary": "bg-white text-black hover:bg-zinc-200 rounded-sm font-mono uppercase text-xs tracking-wider px-4 py-2",
+      "secondary": "bg-transparent border border-zinc-700 text-zinc-300 hover:border-zinc-500 rounded-sm font-mono text-xs px-4 py-2",
+      "ghost": "text-zinc-400 hover:text-white hover:bg-zinc-900 rounded-sm"
+    },
+    "inputs": {
+      "style": "bg-zinc-950 border-zinc-800 focus:ring-1 focus:ring-zinc-500 rounded-sm font-mono text-sm placeholder:text-zinc-600"
+    },
+    "charts": {
+      "library": "Recharts",
+      "style": "Minimal axes, grid lines opacity 0.1. Custom Tooltip (Dark bg, neon text).",
+      "colors": ["#00FF94", "#00D1FF", "#FF0055", "#FFD600"]
+    },
+    "status_indicators": {
+      "live": "animate-pulse w-2 h-2 rounded-full bg-green-500",
+      "offline": "w-2 h-2 rounded-full bg-zinc-600"
+    }
+  },
+  "assets": {
+    "image_urls": {
+      "hero_bg": "https://images.unsplash.com/photo-1768330005224-97a7e6ef08a0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRpZ2l0YWwlMjBlYXJ0aCUyMG1hcCUyMGRhcmslMjB0ZWNobm9sb2d5JTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3NzI4MTM4ODJ8MA&ixlib=rb-4.1.0&q=85",
+      "category_geopolitics": "https://images.unsplash.com/photo-1640697687394-d02650d7ecc6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMGRpZ2l0YWwlMjBlYXJ0aCUyMG1hcCUyMGRhcmslMjB0ZWNobm9sb2d5JTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3NzI4MTM4ODJ8MA&ixlib=rb-4.1.0&q=85",
+      "category_finance": "https://images.unsplash.com/photo-1766339796363-bf0373461816?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjV8MHwxfHNlYXJjaHw0fHxmaW5hbmNpYWwlMjBzdG9jayUyMG1hcmtldCUyMGNoYXJ0JTIwZGFyayUyMG5lb24lMjBhYnN0cmFjdHxlbnwwfHx8fDE3NzI4MTM4ODN8MA&ixlib=rb-4.1.0&q=85",
+      "category_crypto": "https://images.unsplash.com/photo-1702295669425-2c20f0b0904b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHw0fHxibG9ja2NoYWluJTIwZGlnaXRhbCUyMGN1cnJlbmN5JTIwY3J5cHRvJTIwZGFyayUyMGFic3RyYWN0fGVufDB8fHx8MTc3MjgxMzg4NHww&ixlib=rb-4.1.0&q=85",
+      "category_ai": "https://images.unsplash.com/photo-1772053968302-462b0203521a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTJ8MHwxfHNlYXJjaHwyfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlJTIwbmV1cmFsJTIwbmV0d29yayUyMGRhcmslMjBibHVlJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzcyODEzODgzfDA&ixlib=rb-4.1.0&q=85"
+    },
+    "icons": "Use Lucide React (already installed)."
+  },
+  "instructions_to_main_agent": [
+    "INSTALL FRAMER MOTION: 'npm install framer-motion' or 'yarn add framer-motion' is MANDATORY. It is missing in package.json.",
+    "THEME SETUP: Ensure 'dark' class is applied to the root 'html' or 'body' tag by default. This is a Dark Mode ONLY app.",
+    "FONT SETUP: Add '@import' for 'JetBrains Mono' and 'IBM Plex Sans' in 'index.css' from Google Fonts.",
+    "GRID BORDERS: Implement a custom 'GridBorder' component that draws 1px borders between grid items to mimic a financial terminal.",
+    "TICKER TAPE: Create a 'SignalTicker' component at the top showing scrolling probabilities for key markets.",
+    "NO ROUNDED CORNERS: Override Shadcn default radius to '0.125rem' (2px) or '0px' in 'theme.extend.borderRadius'."
+  ],
+  "universal_guidelines": [
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts. Use Bento grids.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur) for sticky headers only.",
+    "Every interaction needs micro-animations (hover, click).",
+    "Use 2-3x more spacing than feels comfortable inside containers, but keep the grid gap tight (density).",
+    "Subtle grain textures or noise overlays can enhance the 'Tactile' feel.",
+    "ALWAYS use 'data-testid' on interactive elements."
+  ]
+}
